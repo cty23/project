@@ -2,16 +2,13 @@
 app.py - Flask main application for Course Evaluation System
 """
 
-import os, sys
+import os
 import csv
 import io
 
-# 确保 backend 目录在 sys.path 中（兼容云环境和本地运行）
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-
 from flask import Flask, request, jsonify, session, send_from_directory, make_response
-from models import init_db, get_db, query_to_dict, query_all
-from auth import login_user, login_required, role_required, get_current_user
+from backend.models import init_db, get_db, query_to_dict, query_all
+from backend.auth import login_user, login_required, role_required, get_current_user
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 app = Flask(__name__,
