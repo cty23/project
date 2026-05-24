@@ -9,8 +9,9 @@ from flask import Flask, request, jsonify, session, send_from_directory, make_re
 from models import init_db, get_db, query_to_dict, query_all
 from auth import login_user, login_required, role_required, get_current_user
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 app = Flask(__name__,
-            static_folder=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'frontend'),
+            static_folder=os.path.join(BASE_DIR, 'frontend'),
             static_url_path='')
 app.secret_key = 'course-eval-secret-key-2024-change-in-production'
 

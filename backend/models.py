@@ -7,7 +7,8 @@ import sqlite3
 import os
 from datetime import datetime
 
-DATABASE_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'database')
+# 优先用环境变量，否则用当前工作目录
+DATABASE_DIR = os.environ.get('DB_DIR', os.path.join(os.getcwd(), 'database'))
 DATABASE_PATH = os.path.join(DATABASE_DIR, 'course_eval.db')
 
 
